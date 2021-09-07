@@ -11,11 +11,8 @@ import java.util.List;
 
 @Repository
 public class UserDaoImp implements UserDao {
-
-
    @PersistenceContext
    private EntityManager em;
-
 
    @Override
    public User getUserByUsername(String username) {
@@ -49,6 +46,4 @@ public class UserDaoImp implements UserDao {
    public void delete(Long id) {
       em.remove(getUserById(id));
    }
-
-
 }

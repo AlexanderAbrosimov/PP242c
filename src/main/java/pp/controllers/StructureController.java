@@ -4,7 +4,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import pp.model.User;
 import pp.service.RoleService;
@@ -14,7 +13,6 @@ import pp.service.UserService;
 @Controller
 @RequestMapping("/")
 public class StructureController {
-
     private final UserService userService;
     private final RoleService roleService;
 
@@ -41,12 +39,6 @@ public class StructureController {
         return "admin";
     }
 
-//    @GetMapping("user/{id}")
-//    public String show(@PathVariable("id") Long id, ModelMap model){
-//        model.addAttribute("user", userService.getUserById(id));
-//        return "show";
-//    }
-
     @GetMapping("/admin/new")
     public String newUser(Model model) {
         model.addAttribute("user", new User());
@@ -61,7 +53,6 @@ public class StructureController {
             user.setRole(roleService.getRoleById(roleId));
         }
         userService.save(user);
-        userService.findAllUsers();
         return "redirect:/admin";
     }
 
@@ -79,7 +70,6 @@ public class StructureController {
             user.setRole(roleService.getRoleById(roleId));
         }
         userService.update(user);
-        userService.findAllUsers();
         return "redirect:/admin";
     }
 

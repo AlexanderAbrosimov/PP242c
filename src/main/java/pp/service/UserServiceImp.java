@@ -17,21 +17,15 @@ public class UserServiceImp implements UserService {
       this.userDao = userDao;
    }
 
-
    @Override
    public List<User> findAllUsers() {
       return userDao.findAll();
    }
 
-
    @Override
    public void save(User user) {
       userDao.save(user);
    }
-
-
-
-
 
    @Override
    public User getUserById(Long id) {
